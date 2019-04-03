@@ -1,9 +1,13 @@
 /*
-* Universidade de Brasília
-* Departamento de Ciência da Computação
-* Teoria e Aplicação de Grafos 2019/01
-*
-* Aluno: Lucas Araújo Pena - 13/0056162
+Universidade de Brasília
+Departamento de Ciência da Computação
+Teoria e Aplicação de Grafos 2019/01
+Aluno: Lucas Araújo Pena - 13/0056162
+
+Códigos consultados:
+http://bit.ly/2HTIGLH
+http://bit.ly/2uIYQ1B
+
 */
 
 #include <iostream>
@@ -99,7 +103,7 @@ void ImprimeLista(vector<int> grafo[], int vert) {
 	cout << endl << "Vertices de maior grau em ordem decrescente: " << endl;
 
 	for (int w = 0; w < vert - 1; ++w) {
-		cout << "\n Lista de adjacencia do vertice: id " << dual[w].first;
+		cout << "\nLista de adjacencia do vertice: id " << dual[w].first;
 		for (int j : grafo[dual[w].first]) {
 			cout << " -> " << j;
 		}
@@ -168,7 +172,7 @@ void ImprimeMaximal(vector<int> grafo[]) {
 
 //Esta função pausa o terminal. 
 void Pause() {
-	cout << "\n\n Pressione enter para fechar o programa...\n" << endl;
+	cout << "\n\nPressione enter para fechar o programa...\n" << endl;
 	std::cin.get();
 }
 
