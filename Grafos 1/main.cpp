@@ -202,6 +202,7 @@ int main() {
 
 	ImprimeMaximal(grafo);
 
+	//Pausa a aplicação para a verificação dos dados.
 	Pause();
 
 	return 0;
