@@ -1,10 +1,17 @@
-TAGrafos Trabalho 1/Debug/
 
 *.sdf
+
 *.sln
+
 *.opendb
+
 *.exe
+
 *.ilk
+
 *.pdb
+
 *.vcxproj*
 
+
+*.suo
