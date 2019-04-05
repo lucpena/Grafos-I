@@ -20,7 +20,7 @@ using namespace std;
 
 vector<vector<int>> Maximal;
 
-//Cria lista de adjacência com os dados do arquivo "karate.gml"
+//Cria lista de adjacencia com os dados do arquivo "karate.gml"
 void CriarListaAdjacencia(vector<int> grafo[]) {
 
 	ifstream file;
@@ -30,7 +30,7 @@ void CriarListaAdjacencia(vector<int> grafo[]) {
 	int j, s, t, len;
 	int i = 0;
 
-	//Lê o arquivo
+	//Le o arquivo
 	while (getline(file, line)) {
 		len = line.length();
 
@@ -84,11 +84,12 @@ void CriarListaAdjacencia(vector<int> grafo[]) {
 	file.close();
 }
 
-//Esta função mostra na tela as listas de adjacências em ordem decrescente de grau.
+//Esta funcao mostra na tela as listas de adjacencias em ordem decrescente de grau.
 void ImprimeLista(vector<int> grafo[], int vert) {
 	vector<pair<int, int>> dual;
 
 	int z = 0;
+	int tmp = 0;
 
 	for (int i = 1; i < vert; i++) {
 		z = grafo[i].size();
@@ -103,16 +104,16 @@ void ImprimeLista(vector<int> grafo[], int vert) {
 	cout << endl << "Vertices de maior grau em ordem decrescente: " << endl;
 
 	for (int w = 0; w < vert - 1; ++w) {
-		cout << "\nLista de adjacencia do vertice: id " << dual[w].first;
 		for (int j : grafo[dual[w].first]) {
-			cout << " -> " << j;
+			tmp++;
 		}
-
+		cout << "\nGrau do vertice " << dual[w].first << ": " << tmp;
 		cout << endl;
+		tmp = 0;
 	}
 }
 
-// Esta função aplica o algoritmo de Bron-Kerbosch no grafo.
+// Esta funcao aplica o algoritmo de Bron-Kerbosch no grafo.
 void BronKerbosch(vector<int> grafo[], vector<int> R, vector<int> P, vector<int> X) {
 	if (P.empty() && X.empty()) {
 		Maximal.push_back(R);
@@ -146,41 +147,41 @@ void BronKerbosch(vector<int> grafo[], vector<int> R, vector<int> P, vector<int>
 	}
 }
 
-//Esta função mostra na tela o clique maximal e um clique maximo diferente.
+//Esta funcao mostra na tela o clique maximal e um clique maximo diferente.
 void ImprimeMaximal(vector<int> grafo[]) {
 	sort(Maximal.begin(), Maximal.end(), [](auto &a, auto &b) {
 		return a.size() > b.size();
 	});
 
 	cout << endl;
-	cout << "Clique Maximal: ";
+	cout << "\n\nCliques Maximais:\n ";
 
-	for (int i : Maximal[0]) {
-		cout << i << " ";
-	}
+	//for (int i : Maximal[0]) {
+	//	cout << i << " ";
+	//}
 
-	cout << endl << endl;
-	cout << "Clique maximo diferente do Maximal: ";
-
-	for (int j : Maximal[1]) {
-		cout << j << " ";
+	for (int m = 0; m < Maximal.size(); m++) {
+		for (int i : Maximal[m]) {
+			cout << " " << i;
+		}
+		cout << endl;
 	}
 
 	cout << endl << endl;
 
 }
 
-//Esta função pausa o terminal. 
+//Esta funcao pausa o terminal. 
 void Pause() {
 	cout << "\n\nPressione enter para fechar o programa...\n" << endl;
 	std::cin.get();
 }
 
 int main() {
-	//Número de vértices do grafo.
+	//Numero de vertices do grafo.
 	int vert = 35;
 
-	//Lista de adjacência
+	//Lista de adjacencia
 	vector<int> grafo[35];
 
 	//Vetores para o algoritmo de Bron-Kerbosch
@@ -202,7 +203,7 @@ int main() {
 
 	ImprimeMaximal(grafo);
 
-	//Pausa a aplicação para a verificação dos dados.
+	//Pausa a aplicacao para a verificacao dos dados.
 	Pause();
 
 	return 0;
