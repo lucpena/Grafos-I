@@ -156,19 +156,37 @@ void ImprimeMaximal(vector<int> grafo[]) {
 	cout << endl;
 	cout << "\n\nCliques Maximais:\n ";
 
-	//for (int i : Maximal[0]) {
-	//	cout << i << " ";
-	//}
 
 	for (int m = 0; m < Maximal.size(); m++) {
+		int j = 0;
+
 		for (int i : Maximal[m]) {
-			cout << " " << i;
+
+			if (j == 0) {
+				cout << i;
+				j++;
+			}
+			else {
+				cout << " -> " << i;
+			}
 		}
+
 		cout << endl;
 	}
 
 	cout << endl << endl;
 
+}
+
+//Funcao para calcular o Coeficiente de aglomeracao
+void CoeficienteAglomeracao(vector<int> grafo[]) {
+
+	//grafo;
+	//int triangulos = 0;
+
+	/*for (int i = 0; i < len; i++) {
+
+	}*/
 }
 
 //Esta funcao pausa o terminal. 
@@ -193,7 +211,6 @@ int main() {
 	//Imprime na tela a lista 
 	ImprimeLista(grafo, vert);
 
-
 	for (int i = 1; i < vert; i++) {
 		P.push_back(i);
 	}
@@ -201,7 +218,11 @@ int main() {
 	//Realiza o algoritmo de Bron-Kerboesch no grafo
 	BronKerbosch(grafo, R, P, X);
 
+	//Mostra os Maximais na tela
 	ImprimeMaximal(grafo);
+
+	//Calcula e mostra na tela os coeficientes calculados.
+	CoeficienteAglomeracao(grafo);
 
 	//Pausa a aplicacao para a verificacao dos dados.
 	Pause();
