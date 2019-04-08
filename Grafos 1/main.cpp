@@ -179,15 +179,22 @@ void ImprimeMaximal(vector<int> grafo[]) {
 }
 
 //Funcao para calcular o Coeficiente de aglomeracao
-void CoeficienteAglomeracao(vector<int> grafo[]) {
-
-	//grafo;
-	//int triangulos = 0;
-
-	/*for (int i = 0; i < len; i++) {
-
-	}*/
-}
+//void CoeficienteAglomeracao(vector<int> grafo[], int vert) {
+//	vector<pair<int, int>> dual;
+//	int z = 0;
+//
+//	for (int i = 1; i < vert; i++) {
+//		z = grafo[i].size();
+//		dual.push_back(pair<int, int>(i, z));
+//		z = 0;
+//	}
+//	
+//	for (int i = 0; i < vert - 1; i++) {
+//		for (int j : grafo[i]) {
+//			cout << "sample text";
+//		}
+//	}
+//}
 
 //Esta funcao pausa o terminal. 
 void Pause() {
@@ -197,10 +204,10 @@ void Pause() {
 
 int main() {
 	//Numero de vertices do grafo.
-	int vert = 35;
+	int const vert = 35;
 
 	//Lista de adjacencia
-	vector<int> grafo[35];
+	vector<int> grafo[vert];
 
 	//Vetores para o algoritmo de Bron-Kerbosch
 	vector<int> R, P, X;
@@ -222,7 +229,7 @@ int main() {
 	ImprimeMaximal(grafo);
 
 	//Calcula e mostra na tela os coeficientes calculados.
-	CoeficienteAglomeracao(grafo);
+	//CoeficienteAglomeracao(grafo, vert);
 
 	//Pausa a aplicacao para a verificacao dos dados.
 	Pause();
