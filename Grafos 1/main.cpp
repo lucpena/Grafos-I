@@ -1,10 +1,10 @@
 /*
-Universidade de Brasília
-Departamento de Ciência da Computação
-Teoria e Aplicação de Grafos 2019/01
-Aluno: Lucas Araújo Pena - 13/0056162
+Universidade de BrasÃ­lia
+Departamento de CiÃªncia da ComputaÃ§Ã£o
+Teoria e AplicaÃ§Ã£o de Grafos 2019/01
+Aluno: Lucas AraÃºjo Pena - 13/0056162
 
-Códigos consultados:
+CÃ³digos consultados:
 http://bit.ly/2HTIGLH
 http://bit.ly/2uIYQ1B
 
@@ -113,7 +113,6 @@ void ImprimeLista(vector<int> grafo[], int vert) {
 	}
 }
 
-// Esta funcao aplica o algoritmo de Bron-Kerbosch no grafo.
 void BronKerbosch(vector<int> grafo[], vector<int> R, vector<int> P, vector<int> X) {
 	if (P.empty() && X.empty()) {
 		Maximal.push_back(R);
@@ -147,7 +146,6 @@ void BronKerbosch(vector<int> grafo[], vector<int> R, vector<int> P, vector<int>
 	}
 }
 
-//Esta funcao mostra na tela o clique maximal e um clique maximo diferente.
 void ImprimeMaximal(vector<int> grafo[]) {
 	sort(Maximal.begin(), Maximal.end(), [](auto &a, auto &b) {
 		return a.size() > b.size();
@@ -211,21 +209,14 @@ int main() {
 
 	//Vetores para o algoritmo de Bron-Kerbosch
 	vector<int> R, P, X;
-
-	//Cria a lista de adjacencia apartir do grafo
 	CriarListaAdjacencia(grafo);
-
-	//Imprime na tela a lista 
 	ImprimeLista(grafo, vert);
 
 	for (int i = 1; i < vert; i++) {
 		P.push_back(i);
 	}
 
-	//Realiza o algoritmo de Bron-Kerboesch no grafo
 	BronKerbosch(grafo, R, P, X);
-
-	//Mostra os Maximais na tela
 	ImprimeMaximal(grafo);
 
 	//Calcula e mostra na tela os coeficientes calculados.
